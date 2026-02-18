@@ -18,7 +18,7 @@
     <h2>Üçüncü Taraf Servisleri</h2>
     <p>Uygulama üçüncü taraf analitik veya reklam servisleri kullanmaz.</p>
     
-    <h2>İletişim</h2>
-    <p>Sorularınız için: your-email@example.com</p>
+    İletişim
+    Sorularınız için: yemirrocak@gmail.com
 </body>
 </html>
