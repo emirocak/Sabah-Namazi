@@ -8,17 +8,17 @@
     <h1>Gizlilik Politikası</h1>
     <p><strong>Son güncellenme: 17 Ocak 2025</strong></p>
     
-    <h2>Veri Toplama</h2>
+    Veri Toplama
     <p>Sabah Namazı uygulaması hiçbir kişisel veri toplamaz veya paylaşmaz.</p>
     
-    <h2>Veri Saklama</h2>
-    <p>Tüm verileriniz (namaz kayıtları) yalnızca cihazınızda saklanır. 
-    Sunucularımıza hiçbir veri gönderilmez.</p>
+    Veri Saklama
+    Tüm verileriniz (namaz kayıtları) yalnızca cihazınızda saklanır. 
+    Sunucularımıza hiçbir veri gönderilmez.
     
-    <h2>Üçüncü Taraf Servisleri</h2>
-    <p>Uygulama üçüncü taraf analitik veya reklam servisleri kullanmaz.</p>
+    Üçüncü Taraf Servisleri
+    Uygulama üçüncü taraf analitik veya reklam servisleri kullanmaz.
     
     İletişim
-    Sorularınız için: yemirrocak@gmail.com
+    Sorularınız için: emirrocak@gmail.com
 </body>
 </html>
