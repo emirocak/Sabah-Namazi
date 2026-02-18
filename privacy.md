@@ -9,7 +9,7 @@
     <p><strong>Son güncellenme: 17 Ocak 2025</strong></p>
     
     Veri Toplama
-    <p>Sabah Namazı uygulaması hiçbir kişisel veri toplamaz veya paylaşmaz.</p>
+    Sabah Namazı uygulaması hiçbir kişisel veri toplamaz veya paylaşmaz.
     
     Veri Saklama
     Tüm verileriniz (namaz kayıtları) yalnızca cihazınızda saklanır. 
