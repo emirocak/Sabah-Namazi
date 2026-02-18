@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Gizlilik Politikası - Sabah Namazı</title>
+    Gizlilik Politikası - Sabah Namazı
     <meta charset="UTF-8">
 </head>
 <body>
