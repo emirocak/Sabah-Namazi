@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gizlilik Politikası — Namaz Takip</title>
+  <style>
+    :root {
+      --teal-deep:    #031510;
+      --teal-dark:    #063d34;
+      --teal-mid:     #0a7c6e;
+      --teal-light:   #14b8a6;
+      --gold:         #f59e0b;
+      --text:         #0d3d38;
+      --text-muted:   #5f8a82;
+      --bg:           #eef9f7;
+      --card:         #ffffff;
+      --border:       #d4ede9;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ─── Hero ─────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-dark) 55%, #0a6657 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M30 0L37.5 12.5L52.5 7.5L45 22.5L60 30L45 37.5L52.5 52.5L37.5 47.5L30 60L22.5 47.5L7.5 52.5L15 37.5L0 30L15 22.5L7.5 7.5L22.5 12.5Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .hero-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #0d9488, #0a7c6e);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      font-size: 36px;
+    }
+
+    /* ─── Layout ────────────────────────────── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ─── Kart ──────────────────────────────── */
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(13, 61, 56, 0.06);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .card-header h2 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 16px 0;
+    }
+
+    p, li {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+    ul li { margin-bottom: 6px; }
+
+    /* ─── Bilgi satırı ──────────────────────── */
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+    .info-row:not(:last-child) { border-bottom: 1px solid var(--border); }
+    .info-label { color: var(--text-muted); }
+    .info-value { font-weight: 700; color: var(--text); }
+
+    /* ─── Vurgulu kutu ──────────────────────── */
+    .highlight-box {
+      background: rgba(20, 184, 166, 0.07);
+      border: 1.5px solid rgba(20, 184, 166, 0.25);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-top: 14px;
+    }
+    .highlight-box p {
+      color: var(--teal-mid);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    /* ─── İletişim butonu ───────────────────── */
+    .contact-btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: linear-gradient(135deg, var(--teal-light), var(--teal-mid));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 12px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(10,124,110,0.3);
+    }
+    .contact-btn:hover { opacity: 0.9; }
+
+    /* ─── Footer ────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    footer span { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<!-- ─── Hero ──────────────────────────────── -->
+<div class="hero">
+  <div class="hero-icon">🕌</div>
+  <div class="hero-badge">📋 Gizlilik Politikası</div>
+  <h1>Namaz Takip</h1>
+  <p>Gizliliğiniz bizim için önemlidir. Bu politika uygulamanın hangi verileri nasıl kullandığını açıklar.</p>
+</div>
+
+<!-- ─── İçerik ────────────────────────────── -->
+<div class="container">
+
+  <!-- Özet -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(20,184,166,0.12);">✅</div>
+      <h2>Kısa Özet</h2>
+    </div>
+    <hr class="divider">
+    <div class="highlight-box">
+      <p>🔒 Namaz Takip hiçbir kişisel verinizi toplamaz, üçüncü taraflarla paylaşmaz ve reklam göstermez. Tüm verileriniz yalnızca cihazınızda saklanır.</p>
+    </div>
+  </div>
+
+  <!-- Toplanan Veriler -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(245,158,11,0.12);">📍</div>
+      <h2>Konum Verisi</h2>
+    </div>
+    <hr class="divider">
+    <p>Uygulama, aşağıdaki işlevler için cihazınızın konumuna erişim ister:</p>
+    <ul>
+      <li>Kıble yönünü hesaplamak</li>
+      <li>Bulunduğunuz konuma göre namaz vakitlerini getirmek</li>
+      <li>Yakın camileri listelemek</li>
+    </ul>
+    <div class="highlight-box">
+      <p>📌 Konum verisi yalnızca bu hesaplamalar için anlık olarak kullanılır. Sunucularımızda saklanmaz, kimliğinizle ilişkilendirilmez ve üçüncü taraflarla paylaşılmaz.</p>
+    </div>
+  </div>
+
+  <!-- Saklanmayan Veriler -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(5,150,105,0.12);">🚫</div>
+      <h2>Toplamadığımız Veriler</h2>
+    </div>
+    <hr class="divider">
+    <p>Namaz Takip şunları toplamaz:</p>
+    <ul>
+      <li>Ad, e-posta veya telefon numarası gibi kişisel bilgiler</li>
+      <li>Reklam tanımlayıcıları (IDFA)</li>
+      <li>Analitik veya kullanım istatistikleri</li>
+      <li>Cihaz kimliği veya IP adresi</li>
+      <li>Namaz kayıtları veya ibadet geçmişi (yalnızca cihazınızda saklanır)</li>
+    </ul>
+  </div>
+
+  <!-- Cihazda Saklanan Veriler -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(79,70,229,0.12);">📱</div>
+      <h2>Cihazınızda Saklanan Veriler</h2>
+    </div>
+    <hr class="divider">
+    <p>Aşağıdaki veriler yalnızca cihazınızda saklanır ve dışarıya aktarılmaz:</p>
+    <ul>
+      <li>Namaz takip kayıtları (hangi vakitleri kıldığınız)</li>
+      <li>Seri ve streak bilgisi</li>
+      <li>Kuran okuma takip verileri</li>
+      <li>Bildirim tercihleri</li>
+      <li>Uygulama ayarları</li>
+    </ul>
+    <p style="margin-top:12px;">Uygulamayı sildiğinizde bu veriler de kalıcı olarak silinir.</p>
+  </div>
+
+  <!-- Üçüncü Taraf Hizmetler -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(8,145,178,0.12);">🌐</div>
+      <h2>Üçüncü Taraf Hizmetler</h2>
+    </div>
+    <hr class="divider">
+    <p>Namaz vakitlerini hesaplamak için <strong>Aladhan API</strong> (aladhan.com) kullanılır. Bu API'ye yalnızca enlem ve boylam koordinatları (konum izni verilmişse) iletilir — hiçbir kişisel veri gönderilmez.</p>
+    <div class="highlight-box">
+      <p>🔗 Aladhan API gizlilik politikası: <a href="https://aladhan.com" style="color:var(--teal-mid);">aladhan.com</a></p>
+    </div>
+  </div>
+
+  <!-- Çocukların Gizliliği -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(190,24,93,0.1);">👶</div>
+      <h2>Çocukların Gizliliği</h2>
+    </div>
+    <hr class="divider">
+    <p>Uygulama 4 yaş ve üzeri kullanıcılar için tasarlanmıştır. Kasıtlı olarak çocuklara ait kişisel veri toplanmaz.</p>
+  </div>
+
+  <!-- Politika Değişiklikleri -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(245,158,11,0.12);">🔄</div>
+      <h2>Politika Değişiklikleri</h2>
+    </div>
+    <hr class="divider">
+    <p>Bu gizlilik politikası değiştirilmesi durumunda bu sayfa güncellenecektir. Uygulamayı kullanmaya devam etmeniz güncel politikayı kabul ettiğiniz anlamına gelir.</p>
+    <div class="info-row" style="margin-top:12px;">
+      <span class="info-label">Son güncelleme</span>
+      <span class="info-value">22 Haziran 2025</span>
+    </div>
+  </div>
+
+  <!-- İletişim -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(5,150,105,0.12);">✉️</div>
+      <h2>İletişim</h2>
+    </div>
+    <hr class="divider">
+    <p>Gizlilik politikamız hakkında sorularınız varsa aşağıdaki adresten bize ulaşabilirsiniz:</p>
+    <div class="info-row">
+      <span class="info-label">Geliştirici</span>
+      <span class="info-value">Emir OCAK</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Stüdyo</span>
+      <span class="info-value">Devora</span>
+    </div>
+    <a class="contact-btn" href="mailto:emirrocak@gmail.com?subject=Namaz%20Takip%20Gizlilik">
+      📧 Bize Yaz
+    </a>
+  </div>
+
+</div>
+
+<!-- ─── Footer ────────────────────────────── -->
+<footer>
+  <p>© 2025 <span>Devora</span> · Emir OCAK · Tüm hakları saklıdır.</p>
+  <p style="margin-top:6px;">Namaz Takip — iOS Uygulaması</p>
+</footer>
+
+</body>
+</html>
